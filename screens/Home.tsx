@@ -3,8 +3,11 @@ import {View, FlatList} from 'react-native';
 import NewsCard from '../Components/NewsCard';
 import axios from 'axios';
 
+
 const Home = ({ navigation }) => {
 const [news, setNews] = useState([]);
+
+
 
 useEffect(() => {
   getNewsFromAPI()

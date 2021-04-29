@@ -1,8 +1,10 @@
 import React from 'react';
-import {View, Text, TextInput, StatusBar, Button, TouchableOpacity} from 'react-native';
-import styles from '../style/PracticalStyle';
-import {saveData} from '../src/Redux/action';
+import {View, Text, TextInput} from 'react-native';
+import styles from '../HomeScreen/style';
+import {saveData} from '../../Redux/action';
 import {connect} from 'react-redux';
+import string from '../../utility/string';
+import {Button} from '../../components/button';
 
 class HomeScreen extends React.Component {
     constructor(props: {} | Readonly<{}>) {
@@ -22,7 +24,7 @@ class HomeScreen extends React.Component {
     return(
         <View style={styles.container}>
             <View style={styles.homeBody}>
-                <Text style={styles.homeText}> Welcome to Home Page</Text>
+                <Text style={styles.homeText}> {string.homewelcome} </Text>
                 
                 <TextInput 
                 placeholder="  Enter Name"
@@ -31,11 +33,11 @@ class HomeScreen extends React.Component {
                     this.setState({name: name}, () => {});
                   }} />
             
-                <TouchableOpacity style={styles.homeButton}
+                <Button style={styles.homeButton}
+                title={string.submit}
                 disabled={this.state.name=='' ? true: false}
-                onPress={this.onSubmit}>
-                <Text style={styles.submitText}> Submit </Text>
-                </TouchableOpacity>
+                onPress={this.onSubmit} />
+
             </View>
         </View>
     );
